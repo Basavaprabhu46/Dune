@@ -1,0 +1,135 @@
+body{
+    background: linear-gradient(to bottom,  rgba(0, 0, 0, 0.874),rgba(88, 103, 88, 1));
+}
+
+@font-face {
+    font-family: 'dune_riseregular';
+    src: url('dune_rise-webfont.woff2') format('woff2'),
+         url('dune_rise-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dune_riseregular';
+    src: url('dune_rise-webfont.woff2') format('woff2'),
+         url('dune_rise-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+header{
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+.name{
+    top: 5px;
+    align-items: center;
+    font-family: dune_riseregular;
+    font-size: 90px;
+    color: hsla(178, 22%, 45%, 1);
+}
+.list{
+    display: flex;
+    margin: 10px;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.item{
+    margin: 1px;
+}
+#s{
+    background-image: url(stilgar.jpeg);
+    height: 350px;
+    width: 210px;
+    background-size: cover;
+}
+#l{
+    background-image: url(lady.jpeg);
+    height: 350px;
+    width: 210px;
+    background-size: cover;
+}
+#p{
+    background-image: url(paul.jpeg);
+    height: 350px;
+    width: 210px;
+    background-size: cover;
+}
+#c{
+    background-image: url(chani.jpeg);
+    height: 350px;
+    width: 210px;
+    background-size: cover;
+}
+#d{
+    background-image: url(duke.jpeg);
+    height: 350px;
+    width: 210px;
+    background-size: cover;
+}
+.list .item{
+    transition: .3s;
+    filter: brightness(0);
+    border-radius: 5%;
+    
+}
+.list .item::before {
+    font-family: dune_riseregular;
+    content: attr(data-name);
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+}
+.list .item:hover::before {
+    opacity: 1;
+}
+.list .item:hover{
+    filter: brightness(1);
+    transform: translateZ(200px);
+    scale: 1.1;
+    border: 5px solid rgb(185, 185, 185);
+
+}
+.list .item:hover + *{
+    filter:brightness(0.3);
+    transform: translateZ(150px) rotateY(40deg);
+    
+}
+.list .item:hover + * + *{ 
+    filter:brightness(0.2);
+    transform: translateZ(75px) rotateY(20deg);
+    
+}
+.list .item:has(+ *:hover){
+    filter:brightness(0.3);
+    transform: translateZ(150px) rotateY(-40deg);
+    
+}
+.list .item:has(+ * + *:hover){
+    filter:brightness(0.2);
+    transform: translateZ(75px) rotateY(-20deg);
+    
+}
+@media screen and (max-width:480px) {
+    #s, #l, #c, #d ,#p{
+        height: 175px; /* Allow the height to adjust based on content */
+        width: 105px; /* Make the width 90% of the viewport width */
+        margin: 0 auto; /* Center the elements */
+    }
+
+}
