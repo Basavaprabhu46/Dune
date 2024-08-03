@@ -127,9 +127,9 @@ header{
 }
 @media screen and (max-width:480px) {
     #s, #l, #c, #d ,#p{
-        height: 175px; /* Allow the height to adjust based on content */
-        width: 105px; /* Make the width 90% of the viewport width */
-        margin: 0 auto; /* Center the elements */
+         height: 155px; /* Allow the height to adjust based on content */
+        width: 110px; /* Make the width 90% of the viewport width */
+        margin:1px; /* Center the elements */
     }
 
 }
